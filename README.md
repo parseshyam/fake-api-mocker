@@ -53,9 +53,10 @@ const fakeSchema = {
 ```
 # Nested Schema [ Object or Array of [Objects or Primitive Types]  ]
 
-1. For nested object you can simply nest it by chaining `.isObject` 
-for exapmle consider name has firstName and lastName as nested fields, Hence Schema would look like
+1. For nested object you can simply nest it by chaining `.isObject()` which will accept a object schema as a parameter 
+for exapmle consider `name` has `firstName` and `lastName` as nested fields.
 
+For below json:-
 ```json
 {
   "name": {
@@ -65,6 +66,7 @@ for exapmle consider name has firstName and lastName as nested fields, Hence Sch
 }
 ```
 
+Schema will look like:-
 ```js
 const { schema, mockFakeAPI } = require("fake-api-mocker");
 
@@ -76,14 +78,13 @@ const fakeNestedSchema = {
   }).done(),
 };
 (async () => {
-  console.log("MOCKING API CALL");
-  const data = await mockFakeAPI(fakeSchema, 1000);
+  const data = await mockFakeAPI(fakeNestedSchema, 1000);
   console.log(JSON.stringify(data, null, 2))
-  console.log("MOCKING API SUCCESS")
 })()
 ```
 2. Consider the above same exapmle, but insted of having single object you want array of object. This can be achieved by specifying `.rows(10)` it takes number as an argument to populate that amount of objects inside array.
 
+For below JSON:-
 ```json
 {
   "name": [
@@ -99,6 +100,7 @@ const fakeNestedSchema = {
 }
 ```
 
+Schema will look like:-
 ```js
 const { schema, mockFakeAPI } = require("fake-api-mocker");
 
@@ -118,6 +120,7 @@ const fakeSchema = {
 
 3. For primitive types. Lets say you want array of emails or timestamps or uuids
 
+For below JSON:-
 ```json
 {
   "id_array": [
@@ -138,6 +141,7 @@ const fakeSchema = {
 }
 ```
 
+Schema will look like:-
 ```js
 const { schema, mockFakeAPI } = require("fake-api-mocker");
 
