@@ -2,24 +2,15 @@ const { schema, mockFakeAPI } = require("./schema");
 
 // EXAMPLE 
 const fakeSchema = {
-  name: schema.isObject({
-    firstName: schema.isEmail().done(),
-    lastName: schema.isString().done(),
-    uuid: schema.isUUID().done(),
-    valie: schema.isObject({
-      email: schema.isEmail().done(),
-    }).rows(1).done()
-  }).done(),
-  image: schema.isObject({
-    images: schema.isImage().rows(2).done(),
-    name: schema.isDate().done(),
-  }).done()
+  id_array: schema.isUUID().rows(3).done(),
+  email_array: schema.isEmail({ isYopMail: true }).rows(1).done(),
+  timestamp_array: schema.isDate({ interval: 100000 }).rows(5).done()
 };
 
 
 (async () => {
   console.log("MOCKING API CALL");
   const data = await mockFakeAPI(fakeSchema, 1000);
-  console.log(data)
+  console.log(JSON.stringify(data, null, 2))
   console.log("MOCKING API SUCCESS")
 })()
