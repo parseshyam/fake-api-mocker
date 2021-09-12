@@ -1,6 +1,6 @@
 # fake-api-mocker
 
-`fake-api-mocker` is Schema based fake API mocker.
+`fake-api-mocker` is Schema based fake API mocker. With this you can create any `complex schema` and generate `massive amounts of fake data` as per as `specified schema` in the browser and in node.js
 ## Install
 
 Install with npm:
@@ -53,7 +53,7 @@ const fakeSchema = {
 ```
 # Nested Schema [ Object or Array of [Objects or Primitive Types]  ]
 
-1. For nested object you can simply nest it by chaining `.isObject()` which will accept a object schema as a parameter 
+## 1. For nested object you can simply nest it by chaining `.isObject()` which will accept a object schema as a parameter 
 for exapmle consider `name` has `firstName` and `lastName` as nested fields.
 
 For below json:-
@@ -82,7 +82,7 @@ const fakeNestedSchema = {
   console.log(JSON.stringify(data, null, 2))
 })()
 ```
-2. Consider the above same exapmle, but insted of having single object you want array of object. This can be achieved by specifying `.rows(10)` it takes number as an argument to populate that amount of objects inside array.
+## 2. Consider the above same example, but insted of having single object you want array of object. This can be achieved by specifying `.rows(10)` it takes number as an argument to populate that amount of objects inside an array.
 
 For below JSON:-
 ```json
@@ -118,7 +118,7 @@ const fakeSchema = {
 })()
 ```
 
-3. For primitive types. Lets say you want array of emails or timestamps or uuids
+## 3. For primitive types. Lets say you want array of emails or timestamps or uuids
 
 For below JSON:-
 ```json
