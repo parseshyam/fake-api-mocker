@@ -82,16 +82,14 @@ const generateRandomData = (stringObj) => {
       if (rows && rows > 0) {
         for (let index = 0; index < rows; index++) {
           for (const [key, value] of Object.entries(schema)) {
-            const schema = JSON.parse(value);
-            obj[key] = generateRandomData(JSON.stringify(schema));
+            obj[key] = generateRandomData(value);
           }
           array.push({ ...obj });
         }
         return array;
       } else {
         for (const [key, value] of Object.entries(schema)) {
-          const schema = JSON.parse(value);
-          obj[key] = generateRandomData(JSON.stringify(schema));
+          obj[key] = generateRandomData(value);
         }
         return { ...obj };
       }
