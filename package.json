@@ -1,16 +1,36 @@
 {
-  "name": "faker-npm",
-  "version": "1.0.0",
+  "name": "fake-api-mocker",
+  "version": "1.0.3",
   "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "faker": "^5.5.3"
-  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "tsc",
+    "build": "tsc",
+    "test": "ts-mocha tests/**/*.test.ts"
   },
-  "keywords": [],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "homepage": "https://github.com/parseshyam/fake-api-mocker#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parseshyam/fake-api-mocker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/parseshyam/fake-api-mocker/issues"
+  },
+  "keywords": [
+    "random data",
+    "api mocking",
+    "mock",
+    "fake mock",
+    "fake schema"
+  ],
   "author": "",
   "license": "ISC"
 }
