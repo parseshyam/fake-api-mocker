@@ -1,11 +1,11 @@
 {
-  "name": "fake-api-mocker",
+  "name": "fake-api",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "faker": "^5.5.3",
+    "fake-api-mocker": "^1.0.0",
     "typescript": "^4.4.3"
   },
   "devDependencies": {
