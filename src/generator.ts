@@ -1,4 +1,5 @@
-const generateRandomData = (stringObj) => {
+import { IStringifiedSchema, IParsedSchema } from './global';
+export const generateRandomData = (stringObj: string) => {
   if (!JSON.parse(stringObj)) throw new Error("Error while parsing schema")
   const {
     // General params
@@ -6,7 +7,7 @@ const generateRandomData = (stringObj) => {
     min,
     max,
     rows,
-    schema = {},
+    schema = {} as IStringifiedSchema,
 
     // Image params
     width = 200,
@@ -16,7 +17,7 @@ const generateRandomData = (stringObj) => {
 
     // Date params
     interval = 0,
-  } = JSON.parse(stringObj);
+  }: IParsedSchema = JSON.parse(stringObj);
   switch (type) {
     case 'isString':
       if (rows && rows > 0) {
@@ -61,7 +62,7 @@ const generateRandomData = (stringObj) => {
         return Date.now() + interval;
       }
     case 'isUUID':
-      function uuidv4() {
+      const uuidv4 = () => {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
           let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
           return v.toString(16);
@@ -78,7 +79,7 @@ const generateRandomData = (stringObj) => {
       }
     case 'isObject':
       const array = [];
-      const obj = {};
+      const obj = {} as { [key: string]: any };
       if (rows && rows > 0) {
         for (let index = 0; index < rows; index++) {
           for (const [key, value] of Object.entries(schema)) {
@@ -93,8 +94,5 @@ const generateRandomData = (stringObj) => {
         }
         return { ...obj };
       }
-    default:
-      break;
   }
 }
-module.exports = { generateRandomData }
