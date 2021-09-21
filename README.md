@@ -125,7 +125,7 @@ const fakeSchema = {
   }
 })()
 ```
- 2. Consider the above same example but insted of having a single object you want array of objects. This is where the ```.rows()``` shines.
+ 2. Consider the above same example but instead of having a single object you want array of objects. This is where the ```.rows()``` shines.
  `.rows(count = 10, chunks = 0)`  it takes `count` as it's 1st argument to populate that amount of objects inside an array. And an optional `chunks` as 2nd argument to populate data in chunks.
 For instance:-
 - `schema.isBoolean().rows(5)` will generate data as `[ true, false, true, false, false ]`
