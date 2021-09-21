@@ -5,7 +5,8 @@ export type ISchemaType =
   'isDate' |
   'isUUID' |
   'isObject' |
-  'isEmail'
+  'isEmail' |
+  'isBoolean'
 
 export type IStringifiedSchema = { [key: string]: string }
 
@@ -22,7 +23,11 @@ export type IParsedSchema = {
   min?: number;
   max?: number;
   rows?: number;
+  chunks?: number;
   schema?: IStringifiedSchema,
+
+  // Boolean Params
+  defaultBoolValue?: boolean;
 
   // Image params
   width?: number;

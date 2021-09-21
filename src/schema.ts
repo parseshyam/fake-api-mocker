@@ -2,10 +2,11 @@ import { generateRandomData } from "./generator";
 
 class Schema {
   schema = {}
-  rows(rows = 10) {
+  rows(rows = 10, chunks = 0) {
     return Object.assign(new Schema(), this, {
       ...(this && this.schema),
       rows,
+      chunks
     })
   }
   isString() {
@@ -33,6 +34,13 @@ class Schema {
     return Object.assign(new Schema(), this, {
       ...(this && this.schema),
       type: "isUUID",
+    })
+  }
+  isBoolean({ defaultBoolValue } = { defaultBoolValue: true }) {
+    return Object.assign(new Schema(), this, {
+      ...(this && this.schema),
+      type: "isBoolean",
+      defaultBoolValue,
     })
   }
   isObject(schema: object) {
@@ -64,7 +72,7 @@ export const mockFakeAPI = (schema: { [key: string]: string }, timeout = 0) => {
     setTimeout(() => {
       try {
         for (const [key, value] of Object.entries(schema)) {
-          tempObject[key] = generateRandomData(value)
+          tempObject[key] = generateRandomData(key, value)
         }
         resolve(tempObject);
       } catch (error) {
